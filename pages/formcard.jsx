@@ -1,8 +1,12 @@
 import { useState } from 'react'
 
-import ImageWithSpace from "../src/components/ImageWithSpace"
 import Container from "../src/components/Containers"
 import styled from "styled-components"
+import Link from 'next/link'
+import { useForm } from 'react-hook-form'
+import { joiResolver } from '@hookform/resolvers/joi'
+import { formCardSchema } from '../modules/post/user.schema'
+
 import Button from "../src/components/Button"
 import Input from "../src/components/Input"
 
@@ -17,27 +21,28 @@ const FlexInput = styled.div`
   flex-direction: row
   gap: 5px;
 `
-function FormCardPage(){
-  const [name, setName] = useState('')
-  const [number, setNumber] = useState('')
-  const [month, setMonth] = useState('')
-  const [year, setYear] = useState('')
-  const [cvc, setCVC] = useState('')
 
-  const handleForm = (event) => {
-    event.preventDefault()
-    console.log("Usuario mecheu")
+function FormCardPage(){
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: joiResolver(formCardSchema)
+  })
+
+  const handleForm = (data) => {
+    console.log(data)
   }
+
+  console.log(errors)
+
    return(
     <>      
         <Container>
-        <Form onSubmit={handleForm}>          
-          <Input label="Proprietário"  placeholder="Digite seu nome" onChange={(event) => {setName(event.target.value)}}/>
-          <Input label="Numero do Cartão" placeholder="1111 1111 1111 1111" onChange={(event) => {setNumber(event.target.value)}}/>        
+        <Form onSubmit={handleSubmit(handleForm)}>          
+          <Input label="Proprietário" name="name" placeholder="Digite seu nome" {...register('name')}/>
+          <Input label="Numero do Cartão" name="number" placeholder="1111 1111 1111 1111" {...register('number')}/>        
           <FlexInput>
-            <Input label="Data Exp Mês"placeholder="Mes" onChange={(event) => {setMonth(event.target.value)}}/>
-            <Input label="Data Exp Ano" placeholder="Ano" onChange={(event) => {setYear(event.target.value)}}/>
-            <Input label="CVC" type="password" onChange={(event) => {setCVC(event.target.value)}}/>
+            <Input label="Data Exp Mês" name="month" placeholder="Mes" {...register('month')}/>
+            <Input label="Data Exp Ano" name="year" placeholder="Ano" {...register('year')}/>
+            <Input label="CVC" name="cvc" {...register('cvc')}/>
           </FlexInput>
           <Button type="submit">Confirme</Button>
         </Form>

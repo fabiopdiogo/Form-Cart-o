@@ -1,18 +1,12 @@
 import Joi from "joi";
 
-export const signupSchema = Joi.object({
-  firstName: Joi.string().required().max(50).message('O campo "nome" pode ter no máximo {{#limit}} caracteres'),
-  lastName: Joi.string().required().max(50).message('O campo "sobrenome" pode ter no máximo {{#limit}} caracteres'),
-  user: Joi.string().required().max(30).message('O campo "usuário" pode ter no máximo {{#limit}} caracteres'),
-  email: Joi.string().email({ tlds: {allow: false}} ).required().max(100).message('O campo "email" pode ter no máximo {{#limit}} caracteres'),
-  password: Joi.string().required()
-    .max(50).message('O campo "senha" pode ter no máximo {{#limit}} caracteres')
-    .min(6).message('O campo "senha" precisa ter ter no mínimo {{#limit}} caracteres'),
+export const formCardSchema = Joi.object({
+  name: Joi.string().required().max(50).message('O campo "Proprietário" pode ter no máximo {{#limit}} caracteres'),
+  number: Joi.string().required().max(16).message('O campo "Numero do Cartão" deve ter no minimo {{#limit}} caracteres'),
+  month: Joi.string().required().max(2).message('O campo "Data Exp Mês" pode ter no máximo {{#limit}} caracteres'),
+  year: Joi.string().required().max(2).message('O campo "Data Exp Ano" pode ter no máximo {{#limit}} caracteres'),
+  cvc: Joi.string().required()
+    .max(3).message('O campo "CVC" pode ter no máximo {{#limit}} caracteres')
+    .min(3).message('O campo "CVC" precisa ter ter no mínimo {{#limit}} caracteres'),
 })
 
-export const loginSchema = Joi.object({
-  userOrEmail: Joi.string().required(),
-  password: Joi.string().required()
-  .max(50).message('O campo "senha" pode ter no máximo {{#limit}} caracteres')
-  .min(6).message('O campo "senha" precisa ter ter no mínimo {{#limit}} caracteres'),
-})

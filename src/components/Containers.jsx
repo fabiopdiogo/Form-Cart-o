@@ -6,7 +6,6 @@ const StyledFlex = styled.div`
   justify-content:center;
   width: 100%;
   height:100vh;  
-  background-color: red;
 
 `
 const Cards= styled.div`
@@ -21,7 +20,7 @@ const Cards= styled.div`
   justify-content:center;
   gap: 10px;
   padding: 0 0;
-  width: 40%;
+  width: 100%;
   height: 100vh;
 `
 
@@ -49,7 +48,7 @@ const FormContainer = styled.div`
   align-items: center;
   justify-content:center;
   padding: 0 350px;
-  width: 20%;
+  width: 100%;
   height: 100vh;
 `
 

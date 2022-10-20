@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { forwardRef } from 'react'
+import { useController } from 'react-hook-form'
 
 const InputContainer = styled.div`
   width: 100%
@@ -22,16 +24,22 @@ const StyledInput = styled.input`
     outline: none
   }
 `
+const ErrorLabel = styled.span`
+  color: ${props => props.theme.error};
+  font-weight: bold;
+  font-size: 14px;
+`
 
-const Input = ({label, ...props}) => {
-
-  return (
-    <InputContainer>
-      <StyledLabel>{label}</StyledLabel>
-      <StyledInput placeholder={label} {...props}/>
-      
-    </InputContainer>
-  )
-}
+const Input = forwardRef(({label,name, ...props}, ref) => {
+  
+    return (
+      <InputContainer>
+        <StyledLabel>{label}</StyledLabel>
+        <StyledInput placeholder={label} {...props} ref={ref} />     
+        
+      </InputContainer>
+    )
+  }
+)
 
 export default Input
