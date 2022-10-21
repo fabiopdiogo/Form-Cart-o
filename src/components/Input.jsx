@@ -23,20 +23,25 @@ const StyledInput = styled.input`
   &:focus {
     outline: none
   }
+
+
 `
 const ErrorLabel = styled.span`
   color: ${props => props.theme.error};
   font-weight: bold;
   font-size: 14px;
 `
+const errorMessage = {
+  'string.empty': 'Este campo é obrigatótio.'
+}
 
-const Input = forwardRef(({label,name, ...props}, ref) => {
-  
+const Input = forwardRef(({label, error,...props}, ref) => {  
+    console.log(error)
     return (
       <InputContainer>
         <StyledLabel>{label}</StyledLabel>
-        <StyledInput placeholder={label} {...props} ref={ref} />     
-        
+        <StyledInput {...props} error={error} ref={ref} />  
+        {error && <ErrorLabel>{errorMessage[error.type] || error.message}</ErrorLabel>}
       </InputContainer>
     )
   }

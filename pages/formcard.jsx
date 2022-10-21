@@ -23,33 +23,27 @@ const FlexInput = styled.div`
 `
 
 function FormCardPage(){
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const {register, handleSubmit, formState: { errors }} = useForm({
     resolver: joiResolver(formCardSchema)
   })
 
-  const handleForm = (data) => {
+  const handleForm = (data) =>{
     console.log(data)
   }
 
-  console.log(errors)
-
    return(
-    <>      
         <Container>
         <Form onSubmit={handleSubmit(handleForm)}>          
-          <Input label="Proprietário" name="name" placeholder="Digite seu nome" {...register('name')}/>
-          <Input label="Numero do Cartão" name="number" placeholder="1111 1111 1111 1111" {...register('number')}/>        
+            <Input label="Proprietário" name="name" placeholder="Digite seu nome" {...register('name')} error={errors.name} />
+            <Input label="Numero do Cartão" name="number" placeholder="1111 1111 1111 1111" {...register('number')} error={errors.number}/>        
           <FlexInput>
-            <Input label="Data Exp Mês" name="month" placeholder="Mes" {...register('month')}/>
-            <Input label="Data Exp Ano" name="year" placeholder="Ano" {...register('year')}/>
-            <Input label="CVC" name="cvc" {...register('cvc')}/>
+            <Input label="Data Exp Mês" name="month" placeholder="Mes" {...register('month')} error={errors.month}/>
+            <Input label="Data Exp Ano" name="year" placeholder="Ano" {...register('year')} error={errors.year}/>
+            <Input label="CVC" name="cvc" {...register('cvc')} error={errors.cvc}/>
           </FlexInput>
           <Button type="submit">Confirme</Button>
         </Form>
         </Container>
-
-    </>
-    
   )
 }
 
