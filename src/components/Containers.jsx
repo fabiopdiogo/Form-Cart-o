@@ -36,8 +36,8 @@ const Card2 = styled.div`
   display:flex;
   background-image: url('/bg-card-back.png');
   background-repeat: no-repeat;
-  background-size: cover;
-
+  background-size: 100%;
+  
   width:100%;
   height:10vh;
 
@@ -57,8 +57,8 @@ function Containers ({children}){
   return(
       <StyledFlex>
         <Cards>
-          <Card1>dert</Card1>
-          <Card2>gtrt</Card2>
+          <Card1>XXXXXXXXXXX</Card1>
+          <Card2>XXXXXXXXXXXX</Card2>
         </Cards>
         <FormContainer>
           {children}
