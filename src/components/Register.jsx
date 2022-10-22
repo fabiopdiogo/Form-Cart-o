@@ -9,10 +9,7 @@ const FormContainer = styled.div`
   background-color: white;
   margin: 20px 0;
   gap: 20px;
-
-
 `
-
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -23,11 +20,12 @@ const FlexInput = styled.div`
   display: flex;
   flex-direction: row
   gap: 5px;
+  
 `
 const Check = styled.img`
   size: 0px;
 `
-  
+
 function Register({handleSubmit,register,errors,reg}){
   return(           
       <div>      

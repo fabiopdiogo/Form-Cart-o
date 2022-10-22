@@ -7,6 +7,11 @@ const StyledFlex = styled.div`
   width: 100%;
   height:100vh;  
 
+  
+  @media (max-width: '1000px'){
+    flex-direction: column;
+  }
+
 `
 const Cards= styled.div`
   display: flex;
@@ -22,6 +27,9 @@ const Cards= styled.div`
   padding: 0 0;
   width: 100%;
   height: 100vh;
+
+
+
 `
 
 const Card1 = styled.div`
@@ -56,10 +64,7 @@ const FormContainer = styled.div`
 function Containers ({children}){
   return(
       <StyledFlex>
-        <Cards>
-          <Card1>XXXXXXXXXXX</Card1>
-          <Card2>XXXXXXXXXXXX</Card2>
-        </Cards>
+       
         <FormContainer>
           {children}
         </FormContainer>
