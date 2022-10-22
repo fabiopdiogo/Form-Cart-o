@@ -19,6 +19,9 @@ Inicializar um projeto Node: "npm init -y"
 
 Instalação do Next, React e React DOM: "npm i next@12.0.7 react@17.0.2 react-dom@17.0.2"
 
+Instalação do styled components: "npm i styled-components@5.3.3"
+
+Instalação da biblioteca do babel: "npm i babel-plugin-styled-components@2.0.6 --save-dev"
 
 React-hook-form: "npm i react-hook-form@7.27.1 @hookform/resolvers@2.8.8"
 
