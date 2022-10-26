@@ -13,12 +13,11 @@ const FormContainer = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  margin: 20px 0;
   gap: 20px;
 `
 const FlexInput = styled.div`
   display: flex;
-  flex-direction: row
+  flex-direction: row;
   gap: 5px;
   
 `

@@ -19,7 +19,7 @@ const Form = styled.form`
 `
 const FlexInput = styled.div`
   display: flex;
-  flex-direction: row
+  flex-direction: row;
   gap: 5px;
 `
 

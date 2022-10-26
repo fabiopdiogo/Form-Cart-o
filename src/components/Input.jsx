@@ -3,7 +3,7 @@ import { forwardRef } from 'react'
 import { useController } from 'react-hook-form'
 
 const InputContainer = styled.div`
-  width: 100%
+  width: 100%;
 `
 const StyledLabel = styled.p`
   font-weight: bold;
@@ -23,8 +23,6 @@ const StyledInput = styled.input`
   &:focus {
     outline: none
   }
-
-
 `
 const ErrorLabel = styled.span`
   color: ${props => props.theme.error};
