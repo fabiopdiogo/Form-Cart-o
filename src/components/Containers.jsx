@@ -3,7 +3,7 @@ import styled from "styled-components"
 const StyledFlex = styled.div`
   display: flex;
   align-items: center;
-  justify-content:space-around;
+  justify-content:space-between;
   width: 100%;
   height:100vh;  
   background-image: url('/bg-main-desktop.png');    
@@ -12,21 +12,10 @@ const StyledFlex = styled.div`
   
   @media (max-width: 1200px){
     flex-direction: column;
-    background-size:40%;
-    width: 100%;
-     
+    background-size: 100% 50%;
   }
 `
-const Cards= styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-`
 
-const DivCard1 = styled.div`
-  display: inline-block;
-  position: relative;
-`
 const P1 = styled.p`
   position: absolute;
   color: white;
@@ -56,18 +45,41 @@ const CardLogo = styled.img`
   top:13px;
   left:20px;
 `
+const DivCard1 = styled.div`
+  display: inline-block;
+  position: relative;
+`
 
 const DivCard2 = styled.div`
   display: inline-block;
   position: relative;
 `
+const Cards= styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+    
+  @media (max-width: 1200px){
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+`
 
 const Card1 = styled.img`
   display:flex;
   background-image: url('/bg-card-front.png');
-
+  
   width: auto;
-  height: auto;
+  height: auto;  
+
+  @media (max-width: 1200px){
+    max-width:400px;
+    max-height:350px;
+    width: auto;
+    height: auto;  
+  }
 `
 const Card2 = styled.img`
   display:flex;
@@ -75,6 +87,14 @@ const Card2 = styled.img`
 
   width: auto;
   height: auto;
+
+  @media (max-width: 1200px){
+    max-width:400px;
+    max-height:350px;
+    
+    width: auto;
+    height: auto;  
+  }
 `
 const CVC = styled.p`
   position: absolute;
@@ -100,8 +120,10 @@ function Containers ({number,name,month,year,cvc,children}){
               <Card2 src={'/bg-card-back.png'}/>      
                 <CVC>{cvc}</CVC>
             </DivCard2>               
-          </Cards>                     
-          {children}        
+          </Cards>     
+        
+          {children}            
+              
       </StyledFlex>
   )
 }

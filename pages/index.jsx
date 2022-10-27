@@ -10,25 +10,32 @@ import { formCardSchema } from '../modules/post/user.schema'
 import Button from "../src/components/Button"
 import Input from "../src/components/Input"
 
-const FormContainer = styled.div`
+const CheckContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
   margin: 20px 0;
   gap: 20px;
 `
+const FlexForm = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 20px;  
+  width: 50%;
 `
 
 const FlexInput = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 5px;
-  
+  gap: 5px;  
 `
+
 const Check = styled.img`
   size: 0px;
 `
@@ -60,7 +67,7 @@ function FormCardPage(){
           <div>                  
             {
               reg === 0 &&
-                  <>
+                  <FlexForm>
                     <Form onSubmit={handleSubmit(handleForm)}>          
                           <Input label="Proprietário" name="name" placeholder="Digite seu nome" {...register('name')} error={errors.name} onChange={(event) => {setName(event.target.value)}}/>
                           <Input label="Numero do Cartão" name="number" placeholder="1111 1111 1111 1111" {...register('number')} error={errors.number} onChange={(event) => {setNumber(event.target.value)}} />        
@@ -71,16 +78,16 @@ function FormCardPage(){
                         </FlexInput>
                         <Button type="submit">Confirme</Button>
                     </Form>
-                  </>
+                  </FlexForm>
             }
             {
               reg !==0 &&
               <>
-                  <FormContainer>
+                  <CheckContainer>
                     <Check src={`icon-complete.svg`}></Check>
                     <p>OBRIGADO !</p>
                     <p>Adicionamos os detalhes no seu cartão</p>
-                  </FormContainer>                       
+                  </CheckContainer>                       
               </>          
             }          
         </div>
