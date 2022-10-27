@@ -34,7 +34,6 @@ const errorMessage = {
 }
 
 const Input = forwardRef(({label, error,...props}, ref) => {  
-    console.log(error)
     return (
       <InputContainer>
         <StyledLabel>{label}</StyledLabel>

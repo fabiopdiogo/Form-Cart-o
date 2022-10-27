@@ -7,10 +7,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
   body{
-    font-family: 'Roboto', sans-serif;    
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;        
     color: ${props => props.theme.black};
-    background-color: ${props => props.theme.background}
+    background-color: white;
   }
 
   a{
