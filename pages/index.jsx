@@ -2,7 +2,6 @@ import { useState } from 'react'
 
 import Container from "../src/components/Containers"
 import styled from "styled-components"
-import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { joiResolver } from '@hookform/resolvers/joi'
 import { formCardSchema } from '../modules/post/user.schema'
@@ -21,6 +20,12 @@ const FlexForm = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0%;
+  margin-bottom: 20px;
+
+  @media (max-width: 705px ){
+    margin-bottom: 80px;
+  }
 `
 
 const Form = styled.form`
@@ -37,7 +42,9 @@ const FlexInput = styled.div`
 `
 
 const Check = styled.img`
-  size: 0px;
+  max-width: 50%;
+  max-height: 100%;
+  margin-left: 25%;
 `
 
 function FormCardPage(){
@@ -46,7 +53,7 @@ function FormCardPage(){
   })
   const [reg,setReg] = useState(0)
   const [name,setName] = useState('Nome') 
-  const [number,setNumber] = useState('0000 0000 0000 0000') 
+  const [number,setNumber] = useState('00000000000000') 
   const [month,setMonth] = useState('00') 
   const [year,setYear] = useState('00') 
   const [cvc,setCVC] = useState('000') 
